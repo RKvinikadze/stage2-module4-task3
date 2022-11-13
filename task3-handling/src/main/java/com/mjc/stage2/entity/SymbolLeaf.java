@@ -10,7 +10,7 @@ public class SymbolLeaf extends AbstractTextComponent{
 
     @Override
     public String operation() {
-        return null;
+        return String.valueOf(value);
     }
 
     @Override

@@ -13,24 +13,10 @@ public class LexemeParser extends AbstractTextParser{
 
     @Override
     public void parse(AbstractTextComponent abstractTextComponent, String string) {
-        Pattern word = Pattern.compile(WORD_REGEX);
+        char[] arr = string.toCharArray();
 
-        String[] strings = string.split(LEXEME_REGEX);
-
-        for (String str: strings){
-            Matcher matcher = word.matcher(str);
-
-            while(matcher.find()){
-                String group = matcher.group();
-                String replacedString = str.replace(group, "");
-
-                for (char x: replacedString.toCharArray()){
-                    abstractTextComponent.add(new SymbolLeaf(x, TextComponentType.SYMBOL));
-                }
-            }
+        for (char x : arr) {
+            abstractTextComponent.add(new SymbolLeaf(x, TextComponentType.WORD));
         }
-
     }
-
-
 }
